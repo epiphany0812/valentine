@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:url("https://i.imgur.com/JIX9F6B.jpg");
+    background-size:cover;
+    font-family:'Comic Sans MS', cursive;
+    overflow:hidden;
+}
+
+/* Floating hearts */
+.heart{
+    position:absolute;
+    color:red;
+    animation:float 6s linear infinite;
+    font-size:20px;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+
+/* Moving cats */
+.cat{
+    position:absolute;
+    width:80px;
+    bottom:10px;
+    animation:moveCat 12s linear infinite;
+}
+
+@keyframes moveCat{
+    from{ left:-100px; }
+    to{ left:110%; }
+}
+
+/* Envelope */
+.envelope{
+    width:220px;
+    height:150px;
+    background:#ffb6c1;
+    position:relative;
+    cursor:pointer;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+.flap{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#ff92b0;
+    top:0;
+    left:0;
+    transform-origin:top;
+    transition:transform 1s;
+    clip-path:polygon(0 0, 100% 0, 50% 60%);
+}
+
+.open .flap{
+    transform:rotateX(180deg);
+}
+
+.sticker{
+    font-size:40px;
+    z-index:2;
+}
+
+/* Question box */
+.box{
+    display:none;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+    border:none;
+    border-radius:20px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.yes{
+    background:#ff69b4;
+    color:white;
+}
+
+.no{
+    background:#ddd;
+}
+
+/* Final letter */
+.letter{
+    display:none;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    width:320px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Moving cats -->
+<img src="https://media.tenor.com/WX8OXWc6H0AAAAAi/cat.gif" class="cat" style="animation-delay:0s;">
+<img src="https://media.tenor.com/WX8OXWc6H0AAAAAi/cat.gif" class="cat" style="animation-delay:6s;">
+
+
+<!-- Envelope -->
+<div class="envelope" id="envelope" onclick="openEnvelope()">
+    <div class="flap"></div>
+    <div class="sticker">💖</div>
+</div>
+
+
+<!-- Question -->
+<div class="box" id="question">
+<h2>Will you be my Valentine? 🥺</h2>
+<button class="yes" onclick="yesClicked()">Yes 💕</button>
+<button class="no" onclick="noClicked()">No 😾</button>
+</div>
+
+
+<!-- Final Letter -->
+<div class="letter" id="letter">
+<h2>Happy Valentine's Day My AKKI❤️</h2>
+<p>
+It still feels unreal that my best friend is also the person I get to love. <br>
+You were the one who stayed, who understood me when no one else did, <br>
+who made me laugh on my worst days and made my best days even better.
+<br>Somewhere between our jokes, our late talks, and our endless memories, you became my home.🐱💖<br>I LOVE YOUUUUU<br>
+</p>
+</div>
+
+
+<script>
+
+/* Envelope opening */
+function openEnvelope(){
+    document.getElementById("envelope").classList.add("open");
+
+    setTimeout(()=>{
+        document.getElementById("envelope").style.display="none";
+        document.getElementById("question").style.display="block";
+    },1000);
+}
+
+/* No button */
+function noClicked(){
+    alert("hawww choose again 😾");
+}
+
+/* Yes button */
+function yesClicked(){
+    document.getElementById("question").style.display="none";
+    document.getElementById("letter").style.display="block";
+}
+
+/* Floating hearts generator */
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
