@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-image:url("https://i.imgur.com/JIX9F6B.jpg"); /* cat bg */
+    background-size:cover;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+/* Envelope */
+.envelope{
+    width:200px;
+    height:150px;
+    background:#ffb6c1;
+    position:relative;
+    cursor:pointer;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Heart sticker */
+.heart{
+    font-size:40px;
+}
+
+/* Question box */
+.box{
+    display:none;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+/* Buttons */
+button{
+    padding:10px 20px;
+    margin:10px;
+    border:none;
+    border-radius:20px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.yes{
+    background:#ff69b4;
+    color:white;
+}
+
+.no{
+    background:#ddd;
+}
+
+/* Final letter */
+.letter{
+    display:none;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    width:300px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Envelope -->
+<div class="envelope" onclick="openEnvelope()" id="envelope">
+    <div class="heart">💖</div>
+</div>
+
+<!-- Question -->
+<div class="box" id="question">
+    <h2>Will you be my Valentine? 🥺</h2>
+    <button class="yes" onclick="yesClicked()">Yes 💕</button>
+    <button class="no" onclick="noClicked()">No 😾</button>
+</div>
+
+<!-- Final Letter -->
+<div class="letter" id="letter">
+    <h2>Happy Valentine's Day ❤️</h2>
+    <p>
+    You are my favorite person ever 🐱💖  
+    Thank you for making my life so special.  
+    I love you more than words can say.  
+    Forever yours ❤️
+    </p>
+</div>
+
+<script>
+
+function openEnvelope(){
+    document.getElementById("envelope").style.display="none";
+    document.getElementById("question").style.display="block";
+}
+
+function noClicked(){
+    alert("hawww choose again 😾");
+}
+
+function yesClicked(){
+    document.getElementById("question").style.display="none";
+    document.getElementById("letter").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
